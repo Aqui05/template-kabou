@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kabou Kabou</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: #f9f9f9;
+        width: 100%;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }
+
+      .contain {
+        z-index: 10;
+      }
+
+      .header {
+        background: #37399b;
+        color: white;
+        text-align: center;
+      }
+
+      .header-nav {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: space-between;
+        justify-content: space-between;
+        position: relative;
+        margin-left: 8.4%;
+        margin-right: 8.4%;
+        margin-bottom: 37px;
+      }
+
+      .logo-left img {
+        width: 122.351px;
+        height: 74px;
+        flex-shrink: 0;
+        /*background: url(<path-to-image>) lightgray -17.984px -45.255px / 130.12% 215.139% no-repeat;*/
+      }
+
+      .logo-right {
+        position: relative;
+        display: inline-block;
+      }
+
+      .logo-right object {
+        width: 82.191px;
+        height: 62px;
+        flex-shrink: 0;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+      }
+
+      .logo-right span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #37399b;
+        font-family: Montserrat;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 110%; /* 15.4px */
+      }
+
+      .header-text {
+        margin: auto;
+      }
+      .header-text-simple {
+        color: #fff;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 38px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        letter-spacing: -0.2px;
+      }
+      .header-text-color {
+        color: var(--Yellow, #fdd32f);
+        text-align: center;
+
+        /* Drop */
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+        font-family: Montserrat;
+        font-size: 38px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        letter-spacing: -0.2px;
+      }
+      .header-text span {
+        color: var(--Turquoise, #6dd5d5);
+        font-family: Montserrat;
+        font-size: 38px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        letter-spacing: -0.2px;
+      }
+
+      .header-millions {
+        width: 684px;
+        height: 312.724px;
+        flex-shrink: 0;
+      }
+
+      .header-pieces {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        gap: 20px;
+      }
+
+      .piece1 {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .piece2 {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .piece3 {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .header-pieces img {
+        width: 74px;
+        height: 74px;
+        /*background: url(<path-to-image>) lightgray 50% / cover no-repeat;*/
+      }
+
+      .prix {
+        display: flex;
+        width: 270px;
+        height: 34px;
+        flex-direction: column;
+        justify-content: center;
+        color: var(--Yellow, #fdd32f);
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        letter-spacing: -0.2px;
+      }
+
+      .piece-text {
+        width: 270px;
+        height: 46px;
+        color: var(--Blanc, #fff);
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 129%; /* 20.64px */
+        letter-spacing: -0.2px;
+      }
+
+      .money-container {
+        position: relative;
+        display: inline-block;
+      }
+      .money1 {
+        width: 23%;
+        height: 303.887px;
+        transform: rotate(16.229deg);
+        top: 30%;
+        left: -4%;
+        position: absolute;
+      }
+      .money2 {
+        width: 29%;
+        height: 346.532px;
+        transform: rotate(-8.691deg);
+        top: 30%;
+        right: 1%;
+        position: absolute;
+      }
+      .money-container object,
+      .money-container img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .money1 img {
+        width: 73.87%;
+        height: 78.72%;
+        top: 47%;
+        left: 65%;
+        transform: translate(-48%, -50%) rotate(-8.771deg);
+      }
+
+      .money2 img {
+        width: 83%;
+        height: 78.74%;
+        top: 48%;
+        left: 66%;
+        transform: translate(-50%, -50%) rotate(-10.691deg);
+      }
+
+      .monument1 {
+        transform: scale(0.9);
+        position: absolute;
+        width: 62px;
+        height: 282px;
+        flex-shrink: 0;
+        left: 5%;
+        bottom: -48px;
+        fill: rgba(0, 0, 0, 0.35);
+        mix-blend-mode: soft-light;
+      }
+
+      .monument2 {
+        transform: scale(0.9);
+        position: absolute;
+        width: 96px;
+        height: 225px;
+        flex-shrink: 0;
+        left: 15%;
+        bottom: -46px;
+        fill: rgba(0, 0, 0, 0.35);
+        mix-blend-mode: soft-light;
+      }
+
+      .monument3 {
+        position: absolute;
+        width: 126px;
+        height: 106px;
+        flex-shrink: 0;
+        left: 85%;
+        bottom: -42px;
+        fill: rgba(0, 0, 0, 0.35);
+        mix-blend-mode: soft-light;
+      }
+
+      .monument4 {
+        transform: scale(0.9);
+        position: absolute;
+        width: 169px;
+        height: 122px;
+        flex-shrink: 0;
+        left: 70%;
+        bottom: -42px;
+        fill: rgba(0, 0, 0, 0.35);
+        mix-blend-mode: soft-light;
+      }
+
+      .monument {
+        bottom: 34px;
+        position: relative;
+      }
+
+      .section-noir {
+        width: 100%;
+        height: 34px;
+        flex-shrink: 0;
+        background: rgba(0, 0, 0, 0.35);
+        mix-blend-mode: soft-light;
+      }
+
+      .content {
+        margin-bottom: 40px;
+      }
+
+      .nav-tabs {
+        justify-content: center;
+        border-bottom: none;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 31px;
+        background: rgba(55, 57, 155, 0.1);
+      }
+      .nav-tabs .nav-link {
+        color: var(--Secondary, #6c6fd7);
+        text-align: center;
+        font-family: Montserrat, sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        border: none;
+        padding: 16px 10px;
+      }
+      .nav-tabs .nav-link.active {
+        display: flex;
+        width: 180px;
+        padding: 16px 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+        border-bottom: 3px solid var(--Primaire, #37399b);
+        color: var(--Primaire, #37399b);
+      }
+
+      .footer {
+        background-color: #37399b;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .footer p {
+        margin: 0;
+      }
+
+      .tab-content {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contain">
+      <!-- Header Section -->
+      <div class="header">
+        <div class="header-nav">
+          <div class="logo-left">
+            <img src="./assets/Logo-KABOU.png" alt="KABOU-KABOU" />
+          </div>
+          <div class="logo-right">
+            <object type="image/svg+xml" data="./assets/Group.svg">
+              Votre navigateur ne supporte pas les SVG
+            </object>
+            <span>Jouer</span>
+          </div>
+        </div>
+
+        <div class="header-text">
+          <div class="header-text-color">kabou kabou <span>bouuu !</span></div>
+          <div class="header-text-simple">Jouez, Apprenez et Gagnez</div>
+        </div>
+
+        <div class="header-million">
+          <img src="./assets/1M-New-Ff@3x 1.png" alt="1 millions" />
+        </div>
+
+        <div class="header-pieces">
+          <div class="piece1">
+            <img src="./assets/50K-NEW.png" alt="50 000 CFA" />
+            <span class="prix">50 000 FCFA</span>
+            <span class="piece-text">
+              à partager par les cinq meilleurs joueurs chaque jour.
+            </span>
+          </div>
+          <div class="piece2">
+            <img src="./assets/150K-NEW.png" alt="150 000 CFA" />
+            <span class="prix">100 000 FCFA</span>
+            <span class="piece-text">
+              à partager par les meilleurs joueurs de chaque quinzaine.
+            </span>
+          </div>
+          <div class="piece3">
+            <img src="./assets/1M-NEW.png" alt="Super gagnant" />
+            <span class="prix">Supers gagnants</span>
+            <span class="piece-text">
+              Tirage au sort à la fin de cinq supers gagnants parmi tous les
+              participants
+            </span>
+          </div>
+        </div>
+
+        <div class="money-container money1">
+          <object data="./assets/money.svg" type="image/svg+xml"></object>
+          <img src="./assets/franc1.png" alt="CFA" />
+        </div>
+        <div class="money-container money2">
+          <object data="./assets/money.svg" type="image/svg+xml"></object>
+          <img src="./assets/franc1.png" alt="CFA" />
+        </div>
+
+        <div class="monument">
+          <object
+            class="monument1"
+            data="./assets/Etoile_rouge.png"
+            type="image/svg+xml"
+          ></object>
+          <object
+            class="monument2"
+            data="./assets/amazone.svg"
+            type="image/svg+xml"
+          ></object>
+          <object
+            class="monument3"
+            data="./assets/guerrier.svg"
+            type="image/svg+xml"
+          ></object>
+          <object
+            class="monument4"
+            data="./assets/behanzin.svg"
+            type="image/svg+xml"
+          ></object>
+        </div>
+
+        <div class="section-noir"></div>
+      </div>
+
+      <!-- Content Section (Tabs) -->
+      <div class="content">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link active"
+              id="concept-tab"
+              data-bs-toggle="tab"
+              href="#concept"
+              role="tab"
+              aria-controls="concept"
+              aria-selected="true"
+              >Concept</a
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link"
+              id="lots-tab"
+              data-bs-toggle="tab"
+              href="#lots"
+              role="tab"
+              aria-controls="lots"
+              aria-selected="false"
+              >Lots à gagner</a
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link"
+              id="jouer-tab"
+              data-bs-toggle="tab"
+              href="#jouer"
+              role="tab"
+              aria-controls="jouer"
+              aria-selected="false"
+              >Comment jouer</a
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link"
+              id="reglement-tab"
+              data-bs-toggle="tab"
+              href="#reglement"
+              role="tab"
+              aria-controls="reglement"
+              aria-selected="false"
+              >Règlement</a
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link"
+              id="faq-tab"
+              data-bs-toggle="tab"
+              href="#faq"
+              role="tab"
+              aria-controls="faq"
+              aria-selected="false"
+              >FAQ</a
+            >
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div
+            class="tab-pane fade show active"
+            id="concept"
+            role="tabpanel"
+            aria-labelledby="concept-tab"
+          ></div>
+          <div
+            class="tab-pane fade"
+            id="lots"
+            role="tabpanel"
+            aria-labelledby="lots-tab"
+          ></div>
+          <div
+            class="tab-pane fade"
+            id="jouer"
+            role="tabpanel"
+            aria-labelledby="jouer-tab"
+          ></div>
+          <div
+            class="tab-pane fade"
+            id="reglement"
+            role="tabpanel"
+            aria-labelledby="reglement-tab"
+          ></div>
+          <div
+            class="tab-pane fade"
+            id="faq"
+            role="tabpanel"
+            aria-labelledby="faq-tab"
+          ></div>
+        </div>
+      </div>
+      <!-- Footer Section -->
+      <div class="footer">
+        <p>&copy; Kabou Kabou, 2024. Tous droits réservés.</p>
+        <p>Politique de cookies | Politique de confidentialité</p>
+      </div>
+    </div>
+
+    <script>
+      // Fonction pour charger un fichier HTML dans un onglet spécifique
+      function loadTabContent(tabId, tabFile) {
+        fetch("pages/" + tabFile)
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById(tabId).innerHTML = data;
+          })
+          .catch((error) => {
+            document.getElementById(tabId).innerHTML =
+              "<p>Le contenu n'a pas pu être chargé.</p>";
+          });
+      }
+
+      // Charger le contenu par défaut (premier onglet)
+      document.addEventListener("DOMContentLoaded", function () {
+        loadTabContent("concept", "concept.html");
+      });
+
+      // Ajouter un écouteur sur les onglets pour charger le contenu dynamiquement
+      document.addEventListener("click", function (event) {
+        if (event.target.matches(".nav-link")) {
+          const tabId = event.target.getAttribute("href").substring(1); // Obtenir l'ID de l'onglet (ex : 'concept')
+          const tabFile = tabId + ".html"; // Créer le nom du fichier à charger
+          loadTabContent(tabId, tabFile);
+        }
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
