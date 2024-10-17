@@ -1,0 +1,56 @@
+.contain {
+}
+
+.svg-section {
+}
+
+.ensemble-monument object {
+  fill: var(--Secondary, #6c6fd7);
+  object-fit: contain;
+}
+
+.text-section {
+}
+
+.text-section h2 {
+  align-self: stretch;
+  color: var(--Primaire, #37399b);
+  font-family: Montserrat;
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%; /* 41.8px */
+  letter-spacing: -0.2px;
+}
+
+.text-section p {
+  align-self: stretch;
+  color: #171717;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+
+.text-section button {
+  display: flex;
+  width: 220px;
+  padding: 10px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(--Yellow, #fdd32f);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.text-section span {
+  color: var(--Primaire, #37399b);
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%; /* 19.8px */
+}
