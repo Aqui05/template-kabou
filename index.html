@@ -11,8 +11,36 @@
       crossorigin="anonymous"
     />
     <style>
+      .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      .popup-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        max-width: 80%;
+      }
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      html,
       body {
-        background-color: #f9f9f9;
+        background-color: #fff;
         width: 100%;
         height: auto;
         overflow-x: hidden;
@@ -20,13 +48,17 @@
       }
 
       .contain {
-        z-index: 10;
+        width: 100%;
+        overflow-x: hidden;
       }
 
       .header {
         background: #37399b;
         color: white;
         text-align: center;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
       }
 
       .header-nav {
@@ -38,7 +70,7 @@
         position: relative;
         margin-left: 8.4%;
         margin-right: 8.4%;
-        margin-bottom: 37px;
+        margin-bottom: 1%;
       }
 
       .logo-left img {
@@ -109,10 +141,21 @@
         letter-spacing: -0.2px;
       }
 
-      .header-millions {
-        width: 684px;
-        height: 312.724px;
+      .header-million {
+        width: 47.5%; /* Largeur à 47.5% pour les grands écrans */
         flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+
+        left: 22%;
+        position: relative;
+      }
+
+      /* Style pour l'image à l'intérieur */
+      .header-million img {
+        object-fit: cover;
+        width: 90%; /* Garde l'image à 90% de la largeur du div */
+        max-width: 100%; /* Assure que l'image ne dépasse jamais la largeur du conteneur */
       }
 
       .header-pieces {
@@ -123,26 +166,10 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        gap: 20px;
+        margin-bottom: 4%;
       }
 
-      .piece1 {
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-
-      .piece2 {
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-
-      .piece3 {
+      .slide {
         display: flex;
         flex-direction: column;
         align-content: center;
@@ -154,6 +181,41 @@
         width: 74px;
         height: 74px;
         /*background: url(<path-to-image>) lightgray 50% / cover no-repeat;*/
+      }
+
+      /* Styles pour le slider mobile */
+      @media (max-width: 768px) {
+        .header-pieces {
+          position: relative;
+          overflow: hidden;
+        }
+        .slide {
+          display: none;
+          width: 100%;
+        }
+        .slide.active {
+          display: flex;
+          flex-direction: column;
+          align-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+        .dot-navigation {
+          text-align: center;
+          margin-top: 10px;
+        }
+        .dot {
+          height: 10px;
+          width: 10px;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          margin: 0 5px;
+          cursor: pointer;
+        }
+        .dot.active {
+          background-color: #717171;
+        }
       }
 
       .prix {
@@ -183,28 +245,32 @@
         font-weight: 400;
         line-height: 129%; /* 20.64px */
         letter-spacing: -0.2px;
+        padding: 0px 9%;
       }
 
+      /* Styles communs pour les conteneurs d'argent */
       .money-container {
-        position: relative;
-        display: inline-block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 150px;
+        height: 200px;
+        filter: blur(2px); /* Rend les éléments légèrement flous */
       }
+
+      /* Styles spécifiques pour money1 (à gauche) */
       .money1 {
-        width: 23%;
-        height: 303.887px;
-        transform: rotate(16.229deg);
-        top: 30%;
-        left: -4%;
-        position: absolute;
+        left: 5%;
+        transform: translateY(-50%) rotate(16.229deg);
       }
+
+      /* Styles spécifiques pour money2 (à droite) */
       .money2 {
-        width: 29%;
-        height: 346.532px;
-        transform: rotate(-8.691deg);
-        top: 30%;
-        right: 1%;
-        position: absolute;
+        right: 5%;
+        transform: translateY(-50%) rotate(-8.691deg);
       }
+
+      /* Styles pour les objets SVG et les images à l'intérieur des conteneurs */
       .money-container object,
       .money-container img {
         position: absolute;
@@ -214,6 +280,7 @@
         height: 100%;
       }
 
+      /* Styles spécifiques pour l'image dans money1 */
       .money1 img {
         width: 73.87%;
         height: 78.72%;
@@ -222,12 +289,40 @@
         transform: translate(-48%, -50%) rotate(-8.771deg);
       }
 
+      /* Styles spécifiques pour l'image dans money2 */
       .money2 img {
         width: 83%;
         height: 78.74%;
         top: 48%;
         left: 66%;
         transform: translate(-50%, -50%) rotate(-10.691deg);
+      }
+
+      /* Media query pour les écrans plus petits */
+      @media (max-width: 768px) {
+        .money-container {
+          width: 100px; /* Taille réduite pour les petits écrans */
+          height: 133px;
+        }
+
+        .money1 {
+          left: 2%;
+        }
+
+        .money2 {
+          right: 2%;
+        }
+
+        .money1 {
+          left: 2%;
+          transform: translateY(-100%) rotate(16.229deg);
+        }
+
+        /* Styles spécifiques pour money2 (à droite) */
+        .money2 {
+          right: 2%;
+          transform: translateY(-100%) rotate(-8.691deg);
+        }
       }
 
       .monument1 {
@@ -295,14 +390,15 @@
       }
 
       .nav-tabs {
-        justify-content: center;
+        justify-content: space-between;
         border-bottom: none;
         display: flex;
         width: 100%;
-        justify-content: center;
-        align-items: center;
         gap: 31px;
         background: rgba(55, 57, 155, 0.1);
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
       }
       .nav-tabs .nav-link {
         color: var(--Secondary, #6c6fd7);
@@ -318,6 +414,11 @@
         padding: 16px;
         align-items: flex-start;
         gap: 10px;
+
+        width: 180px;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
       }
       .nav-tabs .nav-link.active {
         display: flex;
@@ -343,24 +444,90 @@
         height: 64px;
         flex-shrink: 0;
         position: relative;
-        bottom: 170px;
+        bottom: 20pc;
         left: 40px;
       }
 
-      .footer {
+      .cookie-card {
+        text-align: center;
+        width: 30%;
+
+        display: inline-flex;
+        padding: 24px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        border-radius: 16px;
+        background: var(--Blanc, #fff);
+        box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.1);
+      }
+
+      .cookie-message {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .cookie-message p {
+        margin: 20px 0;
+      }
+
+      .cookie-card button {
+        margin: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        left: 0px;
+        position: relative;
+      }
+
+      .accept {
+        background-color: #37399b;
         color: white;
+        left: 15px;
+      }
+
+      .decline {
+        background-color: transparent;
+        color: #37399b;
+        right: 15px;
+      }
+
+      .footer {
         text-align: center;
         position: relative;
-        bottom: 0;
+        bottom: -84px;
         width: 100%;
       }
 
+      .footer img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
       .tab-content {
         margin-top: 20px;
       }
     </style>
   </head>
   <body>
+    <div id="popup" class="popup-overlay">
+      <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <img src="path/to/kabou-kabou-logo.png" alt="Kabou Kabou Logo" />
+        <p>
+          Kabou Kabou est un jeu organisé par la société KAMGOKO en partenariat
+          avec la Loterie Nationale du Bénin (LNB) et autorisé par le Ministère
+          de l'Économie et des Finances sous l'arrêté ministériel
+          2023-N°2783/MEF/DC/SGM/LNB/SP/154566623 du 04/10/2023
+        </p>
+        <img src="path/to/kamgoko-logo.png" alt="KAMGOKO Logo" />
+        <img src="path/to/lnb-logo.png" alt="LNB Logo" />
+        <button id="continueBtn">Continuer</button>
+      </div>
+    </div>
+
     <div class="contain">
       <!-- Header Section -->
       <div class="header">
@@ -386,27 +553,32 @@
         </div>
 
         <div class="header-pieces">
-          <div class="piece1">
+          <div class="slide">
             <img src="./assets/50K-NEW.png" alt="50 000 CFA" />
             <span class="prix">50 000 FCFA</span>
             <span class="piece-text">
               à partager par les cinq meilleurs joueurs chaque jour.
             </span>
           </div>
-          <div class="piece2">
+          <div class="slide">
             <img src="./assets/150K-NEW.png" alt="150 000 CFA" />
             <span class="prix">100 000 FCFA</span>
             <span class="piece-text">
               à partager par les meilleurs joueurs de chaque quinzaine.
             </span>
           </div>
-          <div class="piece3">
+          <div class="slide">
             <img src="./assets/1M-NEW.png" alt="Super gagnant" />
             <span class="prix">Supers gagnants</span>
             <span class="piece-text">
               Tirage au sort à la fin de cinq supers gagnants parmi tous les
               participants
             </span>
+          </div>
+          <div class="dot-navigation">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
           </div>
         </div>
 
@@ -422,7 +594,7 @@
         <div class="monument">
           <object
             class="monument1"
-            data="./assets/Etoile_rouge.png"
+            data="./assets/Etoile_rouge.svg"
             type="image/svg+xml"
           ></object>
           <object
@@ -562,9 +734,72 @@
           />
         </svg>
       </div>
+
+      <div class="cookie-card" style="display: none">
+        <div class="cookie-message">
+          <svg
+            width="65"
+            height="64"
+            viewBox="0 0 65 64"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19.7002 28.8C20.5489 28.8 21.3628 28.4629 21.963 27.8628C22.5631 27.2627 22.9002 26.4487 22.9002 25.6C22.9002 24.7513 22.5631 23.9374 21.963 23.3373C21.3628 22.7372 20.5489 22.4 19.7002 22.4C18.8515 22.4 18.0376 22.7372 17.4375 23.3373C16.8374 23.9374 16.5002 24.7513 16.5002 25.6C16.5002 26.4487 16.8374 27.2627 17.4375 27.8628C18.0376 28.4629 18.8515 28.8 19.7002 28.8ZM32.5002 35.2C33.3489 35.2 34.1628 34.8629 34.763 34.2628C35.3631 33.6627 35.7002 32.8487 35.7002 32C35.7002 31.1513 35.3631 30.3374 34.763 29.7373C34.1628 29.1372 33.3489 28.8 32.5002 28.8C31.6515 28.8 30.8376 29.1372 30.2375 29.7373C29.6374 30.3374 29.3002 31.1513 29.3002 32C29.3002 32.8487 29.6374 33.6627 30.2375 34.2628C30.8376 34.8629 31.6515 35.2 32.5002 35.2ZM42.1002 44.8C42.1002 45.6487 41.7631 46.4627 41.163 47.0628C40.5628 47.6629 39.7489 48 38.9002 48C38.0515 48 37.2376 47.6629 36.6375 47.0628C36.0374 46.4627 35.7002 45.6487 35.7002 44.8C35.7002 43.9513 36.0374 43.1374 36.6375 42.5373C37.2376 41.9372 38.0515 41.6 38.9002 41.6C39.7489 41.6 40.5628 41.9372 41.163 42.5373C41.7631 43.1374 42.1002 43.9513 42.1002 44.8ZM22.9002 44.8C23.7489 44.8 24.5628 44.4629 25.163 43.8628C25.7631 43.2627 26.1002 42.4487 26.1002 41.6C26.1002 40.7513 25.7631 39.9374 25.163 39.3373C24.5628 38.7372 23.7489 38.4 22.9002 38.4C22.0515 38.4 21.2376 38.7372 20.6375 39.3373C20.0374 39.9374 19.7002 40.7513 19.7002 41.6C19.7002 42.4487 20.0374 43.2627 20.6375 43.8628C21.2376 44.4629 22.0515 44.8 22.9002 44.8ZM32.5002 6.40003C27.2396 6.40047 22.1069 8.02153 17.8003 11.0427C13.4938 14.0638 10.2225 18.3383 8.43158 23.2846C6.64064 28.231 6.41701 33.609 7.7911 38.6869C9.1652 43.7649 12.0703 48.2962 16.1112 51.6644C20.152 55.0327 25.1325 57.0743 30.3748 57.5115C35.6172 57.9487 40.867 56.7602 45.41 54.1078C49.9529 51.4554 53.5685 47.4678 55.7647 42.6876C57.9609 37.9074 58.6311 32.5667 57.6842 27.392C57.6299 27.0967 57.4935 26.8225 57.2907 26.601C57.0879 26.3795 56.8269 26.2195 56.5375 26.1394C56.248 26.0593 55.9419 26.0623 55.654 26.148C55.3662 26.2337 55.1083 26.3986 54.9098 26.624C54.0513 27.602 52.915 28.295 51.6525 28.6106C50.39 28.9263 49.0612 28.8495 47.8435 28.3907C46.6257 27.9318 45.5767 27.1126 44.8365 26.0422C44.0962 24.9719 43.6999 23.7014 43.7002 22.4C43.6998 21.9912 43.5601 21.5948 43.3041 21.276C43.0482 20.9572 42.6913 20.7352 42.2922 20.6464C41.1671 20.3931 40.1313 19.8405 39.2944 19.0469C38.4574 18.2534 37.8505 17.2484 37.5378 16.1383C37.225 15.0282 37.218 13.8543 37.5175 12.7405C37.8171 11.6268 38.412 10.6147 39.2394 9.81123C39.445 9.61163 39.5932 9.36049 39.6685 9.08405C39.7438 8.80762 39.7436 8.51602 39.6677 8.23972C39.5919 7.96342 39.4432 7.71257 39.2373 7.51335C39.0313 7.31414 38.7757 7.17388 38.497 7.10723C36.5329 6.63634 34.52 6.39896 32.5002 6.40003ZM10.1002 32C10.1 28.823 10.7757 25.6823 12.0823 22.7864C13.3889 19.8904 15.2966 17.3056 17.6787 15.2034C20.0608 13.1013 22.8628 11.5299 25.8988 10.5936C28.9347 9.65729 32.1351 9.37751 35.2874 9.77283C34.613 10.9977 34.2143 12.3552 34.1192 13.7502C34.0242 15.1453 34.235 16.5443 34.737 17.8493C35.2389 19.1544 36.0199 20.3341 37.0254 21.3058C38.0308 22.2776 39.2364 23.018 40.5578 23.4752C40.7354 25.0563 41.3032 26.5683 42.2101 27.8755C43.117 29.1827 44.3346 30.244 45.7533 30.964C47.172 31.684 48.7475 32.0401 50.3379 32.0003C51.9284 31.9605 53.4841 31.5261 54.865 30.736C55.0328 33.7254 54.5996 36.7181 53.591 39.5372C52.5823 42.3563 51.0188 44.9445 48.9927 47.149C46.9667 49.3535 44.5192 51.1294 41.7951 52.3718C39.0709 53.6142 36.1253 54.2978 33.1325 54.3824C30.1396 54.4669 27.1601 53.9505 24.3702 52.8638C21.5803 51.7771 19.0365 50.1421 16.8893 48.0555C14.7421 45.9689 13.035 43.4729 11.8689 40.7153C10.7028 37.9576 10.1014 34.9941 10.1002 32Z"
+              fill="#37399B"
+            />
+          </svg>
+          <p>
+            Ce site Web utilise des cookies pour vous garantir la meilleure
+            expérience sur notre site Web. <a href="#">En savoir plus</a>
+          </p>
+        </div>
+        <button class="decline">Décliner</button>
+        <button class="accept">Accepter</button>
+      </div>
     </div>
 
     <script>
+      function showPopup() {
+        document.getElementById("popup").style.display = "flex";
+      }
+
+      // Function to hide popup
+      function hidePopup() {
+        document.getElementById("popup").style.display = "none";
+      }
+
+      // Function to load tab content
+      function loadTabContent(tabId, tabFile) {
+        fetch("pages/" + tabFile)
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById(tabId).innerHTML = data;
+          })
+          .catch((error) => {
+            document.getElementById(tabId).innerHTML =
+              "<p>Le contenu n'a pas pu être chargé.</p>";
+          });
+      }
+
+      // Show popup when the page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        showPopup();
+
+        // Load default content when "Continue" button is clicked
+        document
+          .getElementById("continueBtn")
+          .addEventListener("click", function () {
+            hidePopup();
+            loadTabContent("concept", "concept.html");
+          });
+
+        // Close popup when close button is clicked
+        document
+          .querySelector(".close-btn")
+          .addEventListener("click", hidePopup);
+      });
+
       // Fonction pour charger un fichier HTML dans un onglet spécifique
       function loadTabContent(tabId, tabFile) {
         fetch("pages/" + tabFile)
@@ -590,6 +825,78 @@
           const tabFile = tabId + ".html"; // Créer le nom du fichier à charger
           loadTabContent(tabId, tabFile);
         }
+      });
+
+      document
+        .querySelector(".icon-color")
+        .addEventListener("click", function () {
+          document.querySelector(".cookie-card").style.display = "block"; // Affiche la carte de cookies
+        });
+
+      // Pour cacher la carte si on clique sur "Décliner" ou "Accepter"
+      document.querySelector(".decline").addEventListener("click", function () {
+        document.querySelector(".cookie-card").style.display = "none"; // Cache la carte
+      });
+
+      document.querySelector(".accept").addEventListener("click", function () {
+        document.querySelector(".cookie-card").style.display = "none"; // Cache la carte
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll(".slide");
+        const dots = document.querySelectorAll(".dot");
+        let currentSlide = 0;
+
+        function showSlide(n) {
+          slides[currentSlide].classList.remove("active");
+          dots[currentSlide].classList.remove("active");
+          currentSlide = (n + slides.length) % slides.length;
+          slides[currentSlide].classList.add("active");
+          dots[currentSlide].classList.add("active");
+        }
+
+        function nextSlide() {
+          showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+          showSlide(currentSlide - 1);
+        }
+
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", () => showSlide(index));
+        });
+
+        // Initialisation
+        showSlide(0);
+
+        // Optionnel : Défilement automatique
+        // setInterval(nextSlide, 5000);
+
+        // Optionnel : Ajout de la navigation tactile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.querySelector(".header-pieces").addEventListener(
+          "touchstart",
+          (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+          },
+          false
+        );
+
+        document.querySelector(".header-pieces").addEventListener(
+          "touchend",
+          (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX > touchEndX) {
+              nextSlide();
+            } else if (touchStartX < touchEndX) {
+              prevSlide();
+            }
+          },
+          false
+        );
       });
     </script>
     <script

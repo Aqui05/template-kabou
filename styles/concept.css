@@ -1,15 +1,97 @@
-.contain {
+.concept-content {
+  display: flex;
+  width: 100%;
+  gap: 5%;
+  padding: 5%;
+  align-content: space-between;
+  justify-content: space-between;
 }
 
 .svg-section {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  margin-bottom: 8px;
 }
 
-.ensemble-monument object {
-  fill: var(--Secondary, #6c6fd7);
-  object-fit: contain;
+.Englobe {
+  fill: #f1f1fb;
+  position: absolute;
+  z-index: 0;
+}
+
+.EnBas {
+  fill: var(--Blanc, #fff);
+  bottom: -108%;
+  position: relative;
+  left: -6%;
+  z-index: 1;
+}
+
+.svg-section object {
+  position: absolute;
+  z-index: 1;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.cloud1 {
+  flex-shrink: 0;
+  opacity: 0.49;
+  top: 28%;
+  left: 6%;
+}
+
+.cloud2 {
+  flex-shrink: 0;
+  opacity: 0.5;
+  top: 12%;
+  right: 38%;
+}
+
+.cloud3 {
+  top: 23%;
+  right: 4%;
+}
+
+.monum1 {
+  width: 65px;
+  height: 260px;
+  flex-shrink: 0;
+  left: 7%;
+  bottom: -3%;
+}
+
+.monum2 {
+  width: 73.577px;
+  height: 236.543px;
+  flex-shrink: 0;
+  left: 24%;
+  bottom: -10%;
+}
+
+.monum3 {
+  width: 160.371px;
+  height: 202.086px;
+  flex-shrink: 0;
+  left: 55%;
+  bottom: -3%;
+}
+
+.monum4 {
+  width: 169px;
+  height: 130.951px;
+  flex-shrink: 0;
+  left: 33%;
+  bottom: 3%;
 }
 
 .text-section {
+  display: flex;
+  width: 542px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
 }
 
 .text-section h2 {
