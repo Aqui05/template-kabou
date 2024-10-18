@@ -7,6 +7,13 @@
   justify-content: space-between;
 }
 
+@media (max-width: 768px) {
+  .concept-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
 .svg-section {
   position: relative;
   display: inline-block;
