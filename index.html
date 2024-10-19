@@ -13,29 +13,120 @@
     <style>
       .popup-overlay {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 1000;
+        border-radius: 16px;
+        background: linear-gradient(216deg, #37399b 26.85%, #6c6fd7 100.34%);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+        width: 500px;
+        height: 500px;
+
+        overflow: hidden; /* Ensures svg overflow doesn't show */
       }
+
       .popup-content {
-        background-color: white;
         padding: 20px;
-        border-radius: 5px;
         text-align: center;
-        max-width: 80%;
+        width: 100%;
+        position: relative;
       }
-      .close-btn {
+
+      .popup-header {
+        top: -38px;
+        position: relative;
+      }
+
+      .popup-header img {
+        width: 150px;
+        margin-bottom: 20px;
+      }
+
+      .popup-body {
+        position: relative;
+      }
+
+      .popup-body svg {
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: -70px;
+        left: -25%;
+        /* width: 100%; */
+        /* height: 100%; */
+        z-index: -1;
+        overflow: hidden;
+        width: 688.5px;
+        height: 440px;
+        flex-shrink: 0;
+      }
+
+      .popup-body-content {
+        position: relative;
+        z-index: 2;
+        color: #333;
+      }
+
+      .popup-body-content p {
+        color: #37399b;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 22px; /* 137.5% */
+      }
+
+      .popup-body-content button {
+        display: flex;
+        width: 166px;
+        padding: 12.5px 24px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        background: var(--Primaire, #37399b);
+        text-align: center;
+        margin: auto;
+      }
+
+      .btn span {
+        color: var(--Blanc, #fff);
+        font-family: Montserrat;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 110%; /* 15.4px */
+      }
+
+      .close-btn {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: fixed;
         font-size: 20px;
         cursor: pointer;
+        z-index: 1100;
+      }
+      .fort {
+        color: #37399b;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 22px;
+      }
+
+      .line {
+        color: #37399b;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 22px;
+        text-decoration-line: underline;
       }
 
       html,
@@ -168,6 +259,7 @@
         align-items: center;
         position: relative;
         margin-bottom: 4%;
+        gap: 20px;
       }
 
       .slide {
@@ -332,7 +424,7 @@
         width: 62px;
         height: 282px;
         flex-shrink: 0;
-        left: 5%;
+        left: 2%;
         bottom: -48px;
         fill: rgba(0, 0, 0, 0.35);
         mix-blend-mode: soft-light;
@@ -344,7 +436,7 @@
         width: 96px;
         height: 225px;
         flex-shrink: 0;
-        left: 15%;
+        left: 9%;
         bottom: -46px;
         fill: rgba(0, 0, 0, 0.35);
         mix-blend-mode: soft-light;
@@ -355,7 +447,7 @@
         width: 126px;
         height: 106px;
         flex-shrink: 0;
-        left: 85%;
+        left: 90%;
         bottom: -42px;
         fill: rgba(0, 0, 0, 0.35);
         mix-blend-mode: soft-light;
@@ -367,7 +459,7 @@
         width: 169px;
         height: 122px;
         flex-shrink: 0;
-        left: 70%;
+        left: 78%;
         bottom: -42px;
         fill: rgba(0, 0, 0, 0.35);
         mix-blend-mode: soft-light;
@@ -513,19 +605,94 @@
     </style>
   </head>
   <body>
-    <div id="popup" class="popup-overlay">
-      <div class="popup-content">
-        <span class="close-btn">&times;</span>
-        <img src="path/to/kabou-kabou-logo.png" alt="Kabou Kabou Logo" />
-        <p>
-          Kabou Kabou est un jeu organisé par la société KAMGOKO en partenariat
-          avec la Loterie Nationale du Bénin (LNB) et autorisé par le Ministère
-          de l'Économie et des Finances sous l'arrêté ministériel
-          2023-N°2783/MEF/DC/SGM/LNB/SP/154566623 du 04/10/2023
-        </p>
-        <img src="path/to/kamgoko-logo.png" alt="KAMGOKO Logo" />
-        <img src="path/to/lnb-logo.png" alt="LNB Logo" />
-        <button id="continueBtn">Continuer</button>
+    <div id="popup" class="popup">
+      <span class="close-btn">
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_169_2543)">
+            <mask
+              id="mask0_169_2543"
+              style="mask-type: luminance"
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+              width="28"
+              height="28"
+            >
+              <path
+                d="M13.9999 25.6666C20.4434 25.6666 25.6666 20.4435 25.6666 14C25.6666 7.55648 20.4434 2.33331 13.9999 2.33331C7.55642 2.33331 2.33325 7.55648 2.33325 14C2.33325 20.4435 7.55642 25.6666 13.9999 25.6666Z"
+                fill="white"
+                stroke="white"
+                stroke-width="4"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M17.2998 10.7001L10.7 17.2999M10.7 10.7001L17.2998 17.2999"
+                stroke="black"
+                stroke-width="4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </mask>
+            <g mask="url(#mask0_169_2543)">
+              <path d="M0 0H28V28H0V0Z" fill="white" />
+            </g>
+          </g>
+          <defs>
+            <clipPath id="clip0_169_2543">
+              <rect width="28" height="28" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </span>
+      <div class="popup-overlay">
+        <div class="popup-content">
+          <div class="popup-header">
+            <img src="./assets/Logo-KABOU.png" alt="Kabou Kabou Logo" />
+          </div>
+
+          <div class="popup-body">
+            <svg
+              width="500"
+              height="414"
+              viewBox="0 0 500 414"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M-94 0C179.547 68.5241 330.277 67.8962 594.5 0V451H-94V0Z"
+                fill="white"
+              />
+            </svg>
+
+            <div class="popup-body-content">
+              <p>
+                Kabou Kabou est un jeu organisé par la société KAMGOKO en
+                partenariat avec la
+                <span class="fort">Loterie Nationale du Bénin (LNB)</span> et
+                autorisé par le
+                <span class="fort"
+                  >Ministère de l'Économie et des Finances</span
+                >
+                sous l'arrêté ministériel
+                <span class="line"
+                  >2023-N°2783/MEF/DC/SGM/LNB/SP/154566623</span
+                >
+                du 04/10/2023
+              </p>
+              <img src="./assets/kamgoko.jpg" alt="KAMGOKO Logo" />
+              <img src="./assets/lnb.jpg" alt="LNB Logo" />
+              <button class="btn" id="continueBtn">
+                <span>Continuer</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

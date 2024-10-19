@@ -1,16 +1,18 @@
 .concept-content {
-  display: flex;
+  display: inline-flex;
   width: 100%;
   gap: 5%;
   padding: 5%;
   align-content: space-between;
   justify-content: space-between;
+  flex-wrap: wrap; /* Ajout pour permettre le wrapping sur les petits écrans */
 }
 
 @media (max-width: 768px) {
   .concept-content {
     flex-direction: column;
     text-align: center;
+    align-items: center;
   }
 }
 
@@ -25,6 +27,13 @@
   fill: #f1f1fb;
   position: absolute;
   z-index: 0;
+  width: 85%;
+  object-fit: cover;
+}
+
+.ensemble-monument {
+  bottom: 34px;
+  position: relative;
 }
 
 .EnBas {
@@ -47,6 +56,7 @@
   opacity: 0.49;
   top: 28%;
   left: 6%;
+  width: 20%; /* Ajustement pour responsivité */
 }
 
 .cloud2 {
@@ -54,48 +64,55 @@
   opacity: 0.5;
   top: 12%;
   right: 38%;
+  width: 25%; /* Ajustement pour responsivité */
 }
 
 .cloud3 {
   top: 23%;
   right: 4%;
+  width: 15%; /* Ajustement pour responsivité */
+}
+
+.monum1,
+.monum2,
+.monum3,
+.monum4 {
+  width: auto;
+  height: auto;
 }
 
 .monum1 {
-  width: 65px;
-  height: 260px;
-  flex-shrink: 0;
+  width: 15vw; /* Proportions ajustées */
+  max-height: 50vh;
   left: 7%;
   bottom: -3%;
 }
 
 .monum2 {
-  width: 73.577px;
-  height: 236.543px;
-  flex-shrink: 0;
+  width: 16vw;
+  max-height: 50vh;
   left: 24%;
   bottom: -10%;
 }
 
 .monum3 {
-  width: 160.371px;
-  height: 202.086px;
-  flex-shrink: 0;
+  width: 30vw;
+  max-height: 40vh;
   left: 55%;
   bottom: -3%;
 }
 
 .monum4 {
-  width: 169px;
-  height: 130.951px;
-  flex-shrink: 0;
+  width: 35vw;
+  max-height: 35vh;
   left: 33%;
   bottom: 3%;
 }
 
 .text-section {
   display: flex;
-  width: 542px;
+  width: 100%;
+  max-width: 540px;
   flex-direction: column;
   align-items: flex-start;
   gap: 48px;
@@ -105,7 +122,7 @@
   align-self: stretch;
   color: var(--Primaire, #37399b);
   font-family: Montserrat;
-  font-size: 38px;
+  font-size: 6vw; /* Proportionnel à l'écran */
   font-style: normal;
   font-weight: 700;
   line-height: 110%; /* 41.8px */
@@ -116,7 +133,7 @@
   align-self: stretch;
   color: #171717;
   font-family: Montserrat;
-  font-size: 16px;
+  font-size: 4vw; /* Proportionnel */
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -125,7 +142,8 @@
 
 .text-section button {
   display: flex;
-  width: 220px;
+  width: 100%;
+  max-width: 220px;
   padding: 10px 24px;
   justify-content: center;
   align-items: center;
@@ -138,8 +156,8 @@
 .text-section span {
   color: var(--Primaire, #37399b);
   font-family: Montserrat;
-  font-size: 18px;
+  font-size: 5vw; /* Proportionnel */
   font-style: normal;
   font-weight: 700;
-  line-height: 110%; /* 19.8px */
+  line-height: 110%;
 }
