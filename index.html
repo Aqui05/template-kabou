@@ -27,22 +27,26 @@
   font-family: "Montserrat", sans-serif;
 }
 
-     .popup-overlay {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-        border-radius: 16px;
-        background: linear-gradient(216deg, #37399b 26.85%, #6c6fd7 100.34%);
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
-        width: 500px;
-        height: 500px;
+.popup {
+  position: fixed;
+  display: flex;
+  z-index: 1000;
+}
 
-        overflow: hidden; /* Ensures svg overflow doesn't show */
+     .popup-overlay {
+position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    border-radius: 16px;
+    background: linear-gradient(216deg, #37399b 26.85%, #6c6fd7 100.34%);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 41%;
       }
 
       .popup-content {
@@ -53,7 +57,6 @@
       }
 
       .popup-header {
-        top: -38px;
         position: relative;
       }
 
@@ -67,16 +70,16 @@
       }
 
       .popup-body svg {
-        position: absolute;
-        top: -70px;
-        left: -25%;
-        /* width: 100%; */
-        /* height: 100%; */
-        z-index: -1;
-        overflow: hidden;
-        width: 688.5px;
-        height: 440px;
-        flex-shrink: 0;
+position: absolute;
+    top: -90px;
+    left: -16%;
+    /* width: 100%; */
+    /* height: 100%; */
+    z-index: -1;
+    overflow: hidden;
+    width: 131%;
+    height: auto;
+    flex-shrink: 0;
       }
 
       .popup-body-content {
@@ -108,6 +111,11 @@
         margin: auto;
       }
 
+            .popup-body-content button:hover
+             {
+        background: var(--Primaire, #37399b);
+      }
+
       .btn span {
         color: var(--Blanc, #fff);
         font-family: Montserrat;
@@ -118,13 +126,13 @@
       }
 
       .close-btn {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        position: fixed;
-        font-size: 20px;
-        cursor: pointer;
-        z-index: 1100;
+top: 17%;
+    left: 73%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1100;
       }
       .fort {
         color: #37399b;
@@ -170,6 +178,23 @@
         justify-content: center;
         align-items: center;
       }
+
+    .ellipse {
+position: absolute;
+    right: 0px;
+    top: 0px;
+    border-radius: 616px;
+    opacity: 0.5;
+    background: var(--Magenta, #E6286D);
+    filter: blur(200px);
+    width: 45%;
+    height: 87%;
+    flex-shrink: 0;
+    z-index: 0;
+    /* border: 1px solid blue; */
+    top: -21%;
+    left: 79%;
+    }
 
       .header-nav {
         display: flex;
@@ -470,15 +495,13 @@ right: -1%;
       }
 
 
-
 .icon-color {
-  position: fixed;
-  bottom: 40px;
-  left: 40px;
-  width: 64px;
-  height: 64px;
-  cursor: pointer;
-  z-index: 100;
+position: absolute;
+    bottom: -90%;
+    left: 40px;
+    transform: translateX(-50%);
+    z-index: 100;
+    cursor: pointer;
 }
 
 .cookie-card {
@@ -528,7 +551,7 @@ right: -1%;
       .footer {
         text-align: center;
         position: relative;
-        bottom: -55px;
+        /*bottom: -55px;*/
         width: 100%;
       }
 
@@ -549,6 +572,7 @@ right: -1%;
 
       .tab-content {
         margin-top: 20px;
+        padding: 3%;
       }
 
       /* Styles pour le slider mobile */
@@ -596,6 +620,41 @@ right: -1%;
         .nav-tabs {
         justify-content: space-between;
         }
+
+        .popup-overlay {
+          width: 95%;
+        }
+
+        .close-btn {
+            left: 90%;
+    top: 17%;
+        }
+
+        .ellipse {
+
+        top: 20%;
+    transform: translate(-50%, -50%);
+    right: 1%;
+    width: 33%;
+
+        }
+
+        .popup-body svg {
+position: absolute;
+    top: -90px;
+    left: -30%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    width: 169%;
+    height: auto;
+}
+
+.popup-header img {
+  width: 55%;
+  margin-bottom: 44px;
+}
       }
 
         /* Media query pour les écrans plus petits */
@@ -627,6 +686,10 @@ right: -1%;
 
         .monument3 {
         left:90%
+        }
+
+        .icon-color {
+          display: none;
         }
       }
     </style>
@@ -726,6 +789,7 @@ right: -1%;
     <div class="contain">
       <!-- Header Section -->
       <div class="header">
+        <div class="ellipse"></div>
         <div class="header-nav">
           <div class="logo-left">
             <img src="./assets/Logo-KABOU.png" alt="KABOU-KABOU" />
@@ -956,11 +1020,16 @@ right: -1%;
     <script>
       function showPopup() {
         document.getElementById("popup").style.display = "flex";
+        document.querySelector(".tab-content").style.display = "none";
+        document.querySelector(".footer").style.display = "none";
       }
 
       // Function to hide popup
       function hidePopup() {
         document.getElementById("popup").style.display = "none";
+        document.querySelector(".tab-content").style.display = "block";
+        document.querySelector(".footer").style.display = "block";
+         document.querySelector(".content").style.filter = "none";
       }
 
       // Function to load tab content

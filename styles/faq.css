@@ -5,8 +5,9 @@
   font-size: 38px;
   font-style: normal;
   font-weight: 700;
-  line-height: 110%; /* 41.8px */
+  line-height: 110%;
   letter-spacing: -0.2px;
+  margin-bottom: 4%;
 }
 
 .faq-cards {
@@ -63,7 +64,6 @@
   border-radius: 16px 16px 0px 0px;
   background: #f1f1fb;
   display: flex;
-  height: 92px;
   padding: 24px 32px;
   justify-content: space-between;
   align-items: center;

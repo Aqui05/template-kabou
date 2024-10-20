@@ -2,7 +2,6 @@
   display: flex;
   width: 100%;
   gap: 5%;
-  padding: 5%;
   align-items: center;
 }
 
@@ -88,6 +87,10 @@
 
   .text-section button {
     margin: auto;
+  }
+
+  .text-section p {
+    text-align: left;
   }
 }
 
