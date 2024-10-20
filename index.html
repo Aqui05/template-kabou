@@ -12,12 +12,14 @@
     />
     <style>
       ::-webkit-scrollbar {
-  display: none;
-}
+        display: none;
+      }
 
 @font-face {
   font-family: "Montserrat";
-  src: url("./Montserrat/static/Montserrat-Regular.ttf") format("opentype");
+  src:
+    url("./Montserrat/static/Montserrat-Regular.ttf") format("opentype"),
+    url("./Montserrat/static/Montserrat-Black.ttf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -100,7 +102,7 @@ position: absolute;
 
       .popup-body-content button {
         display: flex;
-        width: 166px;
+        width: 35%;
         padding: 12.5px 24px;
         justify-content: center;
         align-items: center;
@@ -126,13 +128,13 @@ position: absolute;
       }
 
       .close-btn {
-top: 17%;
-    left: 73%;
-    transform: translate(-50%, -50%);
-    position: fixed;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 1100;
+        top: 20%;
+        left: 72%;
+        transform: translate(-50%, -50%);
+        position: fixed;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 1100;
       }
       .fort {
         color: #37399b;
@@ -180,20 +182,20 @@ top: 17%;
       }
 
     .ellipse {
-position: absolute;
-    right: 0px;
-    top: 0px;
-    border-radius: 616px;
-    opacity: 0.5;
-    background: var(--Magenta, #E6286D);
-    filter: blur(200px);
-    width: 45%;
-    height: 87%;
-    flex-shrink: 0;
-    z-index: 0;
-    /* border: 1px solid blue; */
-    top: -21%;
-    left: 79%;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      border-radius: 616px;
+      opacity: 0.5;
+      background: var(--Magenta, #E6286D);
+      filter: blur(200px);
+      width: 25%;
+      height: 70%;
+      flex-shrink: 0;
+      z-index: 0;
+      border: 1px solid blue;
+      top: 7%;
+      left: 75%;
     }
 
       .header-nav {
@@ -206,6 +208,7 @@ position: absolute;
         margin-left: 8.4%;
         margin-right: 8.4%;
         margin-bottom: 1%;
+        padding: 1%;
       }
 
       .logo-left img {
@@ -288,11 +291,10 @@ position: absolute;
         position: relative;
       }
 
-      /* Style pour l'image à l'intérieur */
       .header-million img {
         object-fit: cover;
-        width: 90%; /* Garde l'image à 90% de la largeur du div */
-        max-width: 100%; /* Assure que l'image ne dépasse jamais la largeur du conteneur */
+        width: 90%;
+        max-width: 100%;
       }
 
       .header-pieces {
@@ -496,12 +498,12 @@ right: -1%;
 
 
 .icon-color {
-position: absolute;
-    bottom: -103%;
-    left: 65px;
-    transform: translateX(-50%);
-    z-index: 100;
-    cursor: pointer;
+  position: relative;
+  bottom: 40px;
+  left: 65px;
+  transform: translateX(-50%);
+  z-index: 100;
+  cursor: pointer;
 }
 
 .cookie-card {
@@ -524,6 +526,17 @@ position: absolute;
 
       .cookie-message p {
         margin: 20px 0;
+        text-align: center;
+      }
+
+      .cookie-message a {
+        color: var(--Primaire, #37399B);
+        font-family: Montserrat;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        text-decoration-line: underline;
       }
 
       .cookie-card button {
@@ -536,16 +549,40 @@ position: absolute;
         position: relative;
       }
 
+      .ens-btn {
+        display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+      }
       .accept {
         background-color: #37399b;
         color: white;
         left: 15px;
       }
 
+      .accept span {
+        color: var(--Blanc, #FFF);
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 110%; /* 15.4px */
+      }
+
       .decline {
         background-color: transparent;
         color: #37399b;
         right: 15px;
+      }
+
+      .decline span {
+        color: var(--Primaire, #37399B);
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 110%; /* 15.4px */
+text-decoration-line: underline;
       }
 
       .footer {
@@ -594,19 +631,20 @@ position: absolute;
         }
         .dot-navigation {
           text-align: center;
-          margin-top: 10px;
+          margin-top: 30px;
         }
         .dot {
-          height: 10px;
-          width: 10px;
-          background-color: #bbb;
-          border-radius: 50%;
-          display: inline-block;
-          margin: 0 5px;
-          cursor: pointer;
+          height: 20px;
+    width: 20px;
+    background-color: #6F71D1;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+    border: solid #37399B;
         }
         .dot.active {
-          background-color: #717171;
+          background-color: #EFEFEF;
         }
 
           .footer img[src="./assets/footer.png"] {
@@ -655,6 +693,10 @@ position: absolute;
   width: 55%;
   margin-bottom: 44px;
 }
+
+.popup-body-content button {
+  display: flex;
+  width: 90%;}
 
 .header-million {
   width: 90%;
@@ -978,10 +1020,6 @@ position: absolute;
       </div>
       <!-- Footer Section -->
       <div class="footer">
-<img src="./assets/footer.png" alt="footer"></img>
-<img src="./assets/footer-mobile.png" alt="mobile footer"></img>
-      </div>
-
       <div class="icon-color">
         <svg
           width="64"
@@ -997,6 +1035,11 @@ position: absolute;
           />
         </svg>
       </div>
+<img src="./assets/footer.png" alt="footer"></img>
+<img src="./assets/footer-mobile.png" alt="mobile footer"></img>
+      </div>
+
+
 
       <div class="cookie-card" style="display: none">
         <div class="cookie-message">
@@ -1017,8 +1060,10 @@ position: absolute;
             expérience sur notre site Web. <a href="#">En savoir plus</a>
           </p>
         </div>
-        <button class="decline">Décliner</button>
-        <button class="accept">Accepter</button>
+        <div class="ens-btn">
+          <button class="decline"><span>Décliner</span></button>
+          <button class="accept"><span>Accepter</span></button>
+        </div>
       </div>
     </div>
 

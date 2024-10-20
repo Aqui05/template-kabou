@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
 .faq-content h1 {
   color: var(--Primaire, #37399b);
   text-align: center;
