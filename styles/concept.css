@@ -1,163 +1,96 @@
 .concept-content {
-  display: inline-flex;
+  display: flex;
   width: 100%;
   gap: 5%;
   padding: 5%;
-  align-content: space-between;
-  justify-content: space-between;
-  flex-wrap: wrap; /* Ajout pour permettre le wrapping sur les petits écrans */
+  align-items: center;
+}
+
+.svg-section {
+  position: relative;
+  width: 100%;
+}
+
+/* Fix for double SVG display */
+.svg-section object[data="./assets/concept-desktop.svg"] {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.svg-section object[data="./assets/concept-mobile.svg"] {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+.text-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  width: 100%;
+}
+
+.text-section h2 {
+  color: var(--Primaire, #37399b);
+  font-family: Montserrat;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  text-align: left;
+}
+
+.text-section p {
+  color: #171717;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+}
+
+.text-section button {
+  width: 220px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  background: var(--Yellow, #fdd32f);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.text-section button span {
+  color: var(--Primaire, #37399b);
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 @media (max-width: 768px) {
   .concept-content {
     flex-direction: column;
     text-align: center;
-    align-items: center;
+  }
+
+  .svg-section object[data="./assets/concept-desktop.svg"] {
+    display: none;
+  }
+
+  .svg-section object[data="./assets/concept-mobile.svg"] {
+    display: block;
+  }
+
+  .text-section {
+    width: 100%;
+  }
+
+  .text-section button {
+    margin: auto;
   }
 }
 
-.svg-section {
-  position: relative;
-  display: inline-block;
-  flex-shrink: 0;
-  margin-bottom: 8px;
-}
-
-.Englobe {
-  fill: #f1f1fb;
-  position: absolute;
-  z-index: 0;
-  width: 85%;
-  object-fit: cover;
-}
-
-.ensemble-monument {
-  bottom: 34px;
-  position: relative;
-}
-
-.EnBas {
-  fill: var(--Blanc, #fff);
-  bottom: -108%;
-  position: relative;
-  left: -6%;
-  z-index: 1;
-}
-
-.svg-section object {
-  position: absolute;
-  z-index: 1;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-.cloud1 {
-  flex-shrink: 0;
-  opacity: 0.49;
-  top: 28%;
-  left: 6%;
-  width: 20%; /* Ajustement pour responsivité */
-}
-
-.cloud2 {
-  flex-shrink: 0;
-  opacity: 0.5;
-  top: 12%;
-  right: 38%;
-  width: 25%; /* Ajustement pour responsivité */
-}
-
-.cloud3 {
-  top: 23%;
-  right: 4%;
-  width: 15%; /* Ajustement pour responsivité */
-}
-
-.monum1,
-.monum2,
-.monum3,
-.monum4 {
-  width: auto;
-  height: auto;
-}
-
-.monum1 {
-  width: 15vw; /* Proportions ajustées */
-  max-height: 50vh;
-  left: 7%;
-  bottom: -3%;
-}
-
-.monum2 {
-  width: 16vw;
-  max-height: 50vh;
-  left: 24%;
-  bottom: -10%;
-}
-
-.monum3 {
-  width: 30vw;
-  max-height: 40vh;
-  left: 55%;
-  bottom: -3%;
-}
-
-.monum4 {
-  width: 35vw;
-  max-height: 35vh;
-  left: 33%;
-  bottom: 3%;
-}
-
-.text-section {
-  display: flex;
-  width: 100%;
-  max-width: 540px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 48px;
-}
-
-.text-section h2 {
-  align-self: stretch;
-  color: var(--Primaire, #37399b);
-  font-family: Montserrat;
-  font-size: 6vw; /* Proportionnel à l'écran */
-  font-style: normal;
-  font-weight: 700;
-  line-height: 110%; /* 41.8px */
-  letter-spacing: -0.2px;
-}
-
-.text-section p {
-  align-self: stretch;
-  color: #171717;
-  font-family: Montserrat;
-  font-size: 4vw; /* Proportionnel */
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.2px;
-}
-
-.text-section button {
-  display: flex;
-  width: 100%;
-  max-width: 220px;
-  padding: 10px 24px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 8px;
-  background: var(--Yellow, #fdd32f);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-}
-
-.text-section span {
-  color: var(--Primaire, #37399b);
-  font-family: Montserrat;
-  font-size: 5vw; /* Proportionnel */
-  font-style: normal;
-  font-weight: 700;
-  line-height: 110%;
+::-webkit-scrollbar {
+  display: none;
 }
