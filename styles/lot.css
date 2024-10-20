@@ -2,6 +2,10 @@
   display: none;
 }
 
+.lots-content {
+  padding: 0px 0px 25%;
+}
+
 .lots-content h2 {
   color: var(--Primaire, #37399b);
   text-align: center;
@@ -11,6 +15,7 @@
   font-weight: 700;
   line-height: 110%; /* 41.8px */
   letter-spacing: -0.2px;
+  margin-bottom: 35px;
 }
 
 .lots-content p {
@@ -22,6 +27,7 @@
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.2px;
+  margin-bottom: 40px;
 }
 
 .lots-cards {
