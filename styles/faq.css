@@ -60,7 +60,7 @@
   justify-content: center;
   flex-shrink: 0;
   color: #171717;
-  font-family: Montserrat;
+  font-family: MMontserrat;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -103,7 +103,7 @@
 
 .bou {
   color: rgba(23, 23, 23, 0.7);
-  font-family: Montserrat;
+  font-family: MMontserrat;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -113,7 +113,7 @@
 .messenger,
 .whatsapp {
   color: rgba(23, 23, 23, 0.7);
-  font-family: Montserrat;
+  font-family: MMontserrat;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;

@@ -19,10 +19,19 @@
   font-family: "Montserrat";
   src:
     url("./Montserrat/static/Montserrat-Regular.ttf") format("opentype"),
-    url("./Montserrat/static/Montserrat-Black.ttf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
+
+
+@font-face {
+  font-family: "MMontserrat";
+  src:
+    url("./Montserrat/static/Montserrat-Medium.ttf") format("opentype"),
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 
 
@@ -93,6 +102,7 @@
       .popup-header img {
         width: 150px;
         margin-bottom: 20px;
+        object-fit: none;
       }
 
       .popup-body {
@@ -110,7 +120,7 @@
       .popup-body-content p {
         color: #37399b;
         text-align: center;
-        font-family: Montserrat;
+        font-family: MMontserrat;
         font-size: 16px;
         font-style: normal;
         font-weight: 500;
@@ -676,11 +686,12 @@ position: absolute;
 }
 
 .popup-header img {
-  width: 37%;
+    width: 37%;
     margin-bottom: 44px;
     margin: auto;
     justify-content: center;
     align-self: center;
+    object-fit: none;
 }
 
 .popup-body-content button {
