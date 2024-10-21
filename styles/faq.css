@@ -2,10 +2,14 @@
   display: none;
 }
 
+.faq-content {
+    padding: 0px 0px 10%;
+}
+
 .faq-content h1 {
   color: var(--Primaire, #37399b);
   text-align: center;
-  font-family: Montserrat;
+  font-family: OMontserrat;
   font-size: 38px;
   font-style: normal;
   font-weight: 700;
@@ -34,7 +38,8 @@
   border-radius: 16px;
   border: 2px solid #dadbec;
   background: var(--Blanc, #fff);
-  width: inherit;
+  justify-content: center;
+  width: 95%;
 }
 
 .faq-card-header {
@@ -134,4 +139,19 @@
 .rotate {
   transform: rotate(180deg);
   transition: transform 0.3s ease;
+}
+
+
+@media (max-width: 768px) {
+  .faq-cards {
+      width: 96%;
+}
+
+.faq-card-header {
+    padding: 5%;
+}
+
+.active-header {
+    padding: 5%;
+}
 }

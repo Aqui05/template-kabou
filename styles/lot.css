@@ -9,7 +9,7 @@
 .lots-content h2 {
   color: var(--Primaire, #37399b);
   text-align: center;
-  font-family: Montserrat;
+  font-family: OMontserrat;
   font-size: 38px;
   font-style: normal;
   font-weight: 700;
@@ -39,6 +39,7 @@
   justify-content: center;
   align-items: center;
   margin: auto;
+  width: 100%;
 }
 
 .lot-card {
@@ -68,7 +69,8 @@
   flex-direction: column;
   align-items: center;
   gap: 9px;
-  border-radius: 16px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }
 
 .first-part img {
@@ -84,7 +86,7 @@
   align-self: stretch;
   color: var(--Yellow, #fdd32f);
   text-align: center;
-  font-family: Montserrat;
+  font-family: tMontserrat;
   font-size: 20px;
   font-style: normal;
   font-weight: 900;
@@ -138,7 +140,7 @@
 
 .second-part span {
   color: rgba(23, 23, 23, 0.7);
-  font-family: Montserrat;
+  font-family: OMontserrat;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -157,6 +159,6 @@
 }
 
 .second-part li.color {
-  background-color: #f0f0f0;
+  background: #F1F1FB;
   border-radius: 4px;
 }

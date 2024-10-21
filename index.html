@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,19 +24,43 @@
   font-style: normal;
 }
 
+
+
+@font-face {
+  font-family: "tMontserrat";
+  src:
+    url("./Montserrat/static/Montserrat-Black.ttf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OMontserrat";
+  src:
+    url("./Montserrat/static/Montserrat-SemiBold.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
       * {
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
 
 .popup {
-  position: fixed;
-  display: flex;
-  z-index: 1000;
+      position: fixed;
+    display: flex;
+    z-index: 1000;
+    align-items: flex-start;
+    top: 50%;
+    left: 50%;
+    width: 100%;
 }
 
      .popup-overlay {
-position: fixed;
+     /*position: fixed;*/
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -45,22 +69,26 @@ position: fixed;
     align-items: center;
     z-index: 1000;
     border-radius: 16px;
-    background: linear-gradient(216deg, #37399b 26.85%, #6c6fd7 100.34%);
+    background-color: white;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     width: 41%;
       }
 
       .popup-content {
-        padding: 20px;
         text-align: center;
         width: 100%;
         position: relative;
       }
 
-      .popup-header {
-        position: relative;
-      }
+.popup-header {
+ position: relative;
+  background: linear-gradient(216deg, #37399b 26.85%, #6c6fd7 100.34%);
+  clip-path: ellipse(90% 70% at 50% 10%);
+  height: 150px;
+  justify-content: center;
+  display: flex;
+}
 
       .popup-header img {
         width: 150px;
@@ -69,25 +97,14 @@ position: fixed;
 
       .popup-body {
         position: relative;
-      }
-
-      .popup-body svg {
-position: absolute;
-    top: -90px;
-    left: -16%;
-    /* width: 100%; */
-    /* height: 100%; */
-    z-index: -1;
-    overflow: hidden;
-    width: 131%;
-    height: auto;
-    flex-shrink: 0;
+        background-color: white;
       }
 
       .popup-body-content {
         position: relative;
         z-index: 2;
         color: #333;
+        padding: 10px;
       }
 
       .popup-body-content p {
@@ -111,6 +128,8 @@ position: absolute;
         background: var(--Primaire, #37399b);
         text-align: center;
         margin: auto;
+        margin-top: 7%;
+        margin-bottom: 5%;
       }
 
             .popup-body-content button:hover
@@ -120,25 +139,23 @@ position: absolute;
 
       .btn span {
         color: var(--Blanc, #fff);
-        font-family: Montserrat;
+        font-family: OMontserrat;
         font-size: 14px;
         font-style: normal;
         font-weight: 700;
         line-height: 110%; /* 15.4px */
       }
 
-      .close-btn {
-        top: 20%;
-        left: 72%;
-        transform: translate(-50%, -50%);
-        position: fixed;
-        font-size: 20px;
-        cursor: pointer;
-        z-index: 1100;
-      }
+.close-btn {
+position: absolute;
+    top: -50%;
+    /* right: -70%; */
+    transform: none;
+    left: 21%;
+}
       .fort {
         color: #37399b;
-        font-family: Montserrat;
+        font-family: OMontserrat;
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
@@ -189,7 +206,7 @@ position: absolute;
       border-radius: 616px;
       opacity: 0.5;
       background: var(--Magenta, #E6286D);
-      filter: blur(200px);
+      filter: blur(150px);
       width: 25%;
       height: 70%;
       flex-shrink: 0;
@@ -233,11 +250,11 @@ position: absolute;
 
       .logo-right span {
         position: absolute;
-        top: 50%;
+        top: 38%;
         left: 50%;
         transform: translate(-50%, -50%);
         color: #37399b;
-        font-family: Montserrat;
+        font-family: OMontserrat;
         font-size: 14px;
         font-style: normal;
         font-weight: 700;
@@ -252,7 +269,7 @@ position: absolute;
       .header-text-simple {
         color: #fff;
         text-align: center;
-        font-family: Montserrat;
+        font-family: tMontserrat;
         font-size: 38px;
         font-style: normal;
         font-weight: 900;
@@ -262,10 +279,8 @@ position: absolute;
       .header-text-color {
         color: var(--Yellow, #fdd32f);
         text-align: center;
-
-        /* Drop */
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-        font-family: Montserrat;
+        font-family: tMontserrat;
         font-size: 38px;
         font-style: normal;
         font-weight: 900;
@@ -274,7 +289,7 @@ position: absolute;
       }
       .header-text span {
         color: var(--Turquoise, #6dd5d5);
-        font-family: Montserrat;
+        font-family: tMontserrat;
         font-size: 38px;
         font-style: normal;
         font-weight: 900;
@@ -283,7 +298,7 @@ position: absolute;
       }
 
       .header-million {
-        width: 47.5%; /* Largeur à 47.5% pour les grands écrans */
+        width: 55%; /* Largeur à 47.5% pour les grands écrans */
         flex-shrink: 0;
         display: flex;
         justify-content: center;
@@ -332,7 +347,7 @@ position: absolute;
         justify-content: center;
         color: var(--Yellow, #fdd32f);
         text-align: center;
-        font-family: Montserrat;
+        font-family: tMontserrat;
         font-size: 20px;
         font-style: normal;
         font-weight: 900;
@@ -357,7 +372,7 @@ position: absolute;
       /* Styles communs pour les conteneurs d'argent */
       .money-container {
         position: absolute;
-        top: 50%;
+        top: 45%;
         transform: translateY(-50%);
       }
 
@@ -490,7 +505,7 @@ right: -1%;
         border-bottom: 3px solid var(--Primaire, #37399b);
         color: var(--Primaire, #37399b);
         background: none;
-        font-family: Montserrat;
+        font-family: OMontserrat;
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
@@ -563,7 +578,7 @@ right: -1%;
 
       .accept span {
         color: var(--Blanc, #FFF);
-font-family: Montserrat;
+font-family: OMontserrat;
 font-size: 14px;
 font-style: normal;
 font-weight: 700;
@@ -578,7 +593,7 @@ line-height: 110%; /* 15.4px */
 
       .decline span {
         color: var(--Primaire, #37399B);
-font-family: Montserrat;
+font-family: OMontserrat;
 font-size: 14px;
 font-style: normal;
 font-weight: 600;
@@ -586,27 +601,12 @@ line-height: 110%; /* 15.4px */
 text-decoration-line: underline;
       }
 
-      .footer {
+      .icon-bas {
         text-align: center;
         position: relative;
         /*bottom: -55px;*/
         width: 100%;
       }
-
-
-.footer img[src="./assets/footer.png"] {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.footer img[src="./assets/footer-mobile.png"] {
-  display: none;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
 
       .tab-content {
         margin-top: 20px;
@@ -648,14 +648,6 @@ text-decoration-line: underline;
           background-color: #EFEFEF;
         }
 
-          .footer img[src="./assets/footer.png"] {
-    display: none;
-  }
-
-  .footer img[src="./assets/footer-mobile.png"] {
-    display: block;
-  }
-
         .nav-tabs {
         justify-content: space-between;
         }
@@ -664,18 +656,11 @@ text-decoration-line: underline;
           width: 95%;
         }
 
-        .close-btn {
-            left: 90%;
-    top: 17%;
-        }
-
         .ellipse {
-
-        top: 20%;
-    transform: translate(-50%, -50%);
-    right: 1%;
-    width: 33%;
-
+          top: 16%;
+          transform: translate(-50%, -50%);
+          right: 1%;
+          width: 51%;
         }
 
         .popup-body svg {
@@ -691,8 +676,11 @@ position: absolute;
 }
 
 .popup-header img {
-  width: 55%;
-  margin-bottom: 44px;
+  width: 37%;
+    margin-bottom: 44px;
+    margin: auto;
+    justify-content: center;
+    align-self: center;
 }
 
 .popup-body-content button {
@@ -739,11 +727,137 @@ position: absolute;
         .icon-color {
           display: none;
         }
+
+        .close-btn {
+  position: absolute;
+  top: -58%;
+  right: -70%;
+  transform: none;
+  left: 40%;
+}
       }
+
+
+      /* Footer style */
+/* Footer style */
+.footer {
+    background: linear-gradient(to right, #2c3e93, #68267b);
+    color: #fff;
+    padding: 40px 0;
+}
+
+.footer-logo {
+    padding: 10%;
+  width: auto;
+}
+
+.footer-link {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.footer-icon img {
+    width: 30px;
+    margin: 0 10px;
+}
+
+.footer-icon img:hover {
+    opacity: 0.8;
+}
+
+/* Footer bottom section */
+.footer-bottom {
+    background-color: #fff;
+    border-top: 1px solid #e0e0e0; /* Light border to separate */
+}
+
+.footer-bottom .text-muted {
+    color: #6c757d !important;
+}
+
+.designer-link {
+    color: #8c84ff;
+    text-decoration: none;
+    color: var(--Primaire, #37399B);
+    font-family: OMontserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+    text-decoration-line: underline;
+}
+
+
+
+          .mobile-bottom {
+            color: #37399A;
+            font-family: Montserrat;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 18px;
+            text-decoration-line: underline;
+            display: none;
+          }
+
+
+      @media (max-width: 768px) {
+        .mobile-bottom {
+          display: block;
+        }
+
+        .py-3 {
+          flex-direction: column;
+        }
+
+        .footer-logo {
+          padding: 5%;
+          width: auto;
+        }
+      }
+
     </style>
   </head>
   <body>
     <div id="popup" class="popup">
+      <div class="popup-overlay">
+        <div class="popup-content">
+          <div class="popup-header">
+            <img src="./assets/Logo-KABOU.png" alt="Kabou Kabou Logo" />
+          </div>
+
+          <div class="popup-body">
+
+            <div class="popup-body-content">
+              <p>
+                Kabou Kabou est un jeu organisé par la société KAMGOKO en
+                partenariat avec la
+                <span class="fort">Loterie Nationale du Bénin (LNB)</span> et
+                autorisé par le
+                <span class="fort"
+                  >Ministère de l'Économie et des Finances</span
+                >
+                sous l'arrêté ministériel
+                <span class="line"
+                  >2023-N°2783/MEF/DC/SGM/LNB/SP/154566623</span
+                >
+                du 04/10/2023
+              </p>
+              <img src="./assets/kamgoko.jpg" alt="KAMGOKO Logo" />
+              <img src="./assets/line.jpg" alt="separetor line"/>
+              <img style="margin-left: 16px" src="./assets/lnb.jpg" alt="LNB Logo" />
+              <button class="btn" id="continueBtn">
+                <span>Continuer</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <span class="close-btn">
         <svg
           width="28"
@@ -788,50 +902,6 @@ position: absolute;
           </defs>
         </svg>
       </span>
-      <div class="popup-overlay">
-        <div class="popup-content">
-          <div class="popup-header">
-            <img src="./assets/Logo-KABOU.png" alt="Kabou Kabou Logo" />
-          </div>
-
-          <div class="popup-body">
-            <svg
-              width="500"
-              height="414"
-              viewBox="0 0 500 414"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M-94 0C179.547 68.5241 330.277 67.8962 594.5 0V451H-94V0Z"
-                fill="white"
-              />
-            </svg>
-
-            <div class="popup-body-content">
-              <p>
-                Kabou Kabou est un jeu organisé par la société KAMGOKO en
-                partenariat avec la
-                <span class="fort">Loterie Nationale du Bénin (LNB)</span> et
-                autorisé par le
-                <span class="fort"
-                  >Ministère de l'Économie et des Finances</span
-                >
-                sous l'arrêté ministériel
-                <span class="line"
-                  >2023-N°2783/MEF/DC/SGM/LNB/SP/154566623</span
-                >
-                du 04/10/2023
-              </p>
-              <img src="./assets/kamgoko.jpg" alt="KAMGOKO Logo" />
-              <img src="./assets/lnb.jpg" alt="LNB Logo" />
-              <button class="btn" id="continueBtn">
-                <span>Continuer</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="contain">
@@ -1020,26 +1090,63 @@ position: absolute;
         </div>
       </div>
       <!-- Footer Section -->
-      <div class="footer">
-      <div class="icon-color">
-        <svg
-          width="64"
-          height="64"
-          viewBox="0 0 64 64"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect width="64" height="64" rx="32" fill="#37399B" />
-          <path
-            d="M20.9982 29.25C21.7275 29.25 22.427 28.9603 22.9427 28.4445C23.4584 27.9288 23.7482 27.2293 23.7482 26.5C23.7482 25.7707 23.4584 25.0712 22.9427 24.5555C22.427 24.0397 21.7275 23.75 20.9982 23.75C20.2688 23.75 19.5693 24.0397 19.0536 24.5555C18.5379 25.0712 18.2482 25.7707 18.2482 26.5C18.2482 27.2293 18.5379 27.9288 19.0536 28.4445C19.5693 28.9603 20.2688 29.25 20.9982 29.25ZM31.9982 34.75C32.7275 34.75 33.427 34.4603 33.9427 33.9445C34.4584 33.4288 34.7482 32.7293 34.7482 32C34.7482 31.2706 34.4584 30.5712 33.9427 30.0555C33.427 29.5397 32.7275 29.25 31.9982 29.25C31.2688 29.25 30.5693 29.5397 30.0536 30.0555C29.5379 30.5712 29.2482 31.2706 29.2482 32C29.2482 32.7293 29.5379 33.4288 30.0536 33.9445C30.5693 34.4603 31.2688 34.75 31.9982 34.75ZM40.2482 43C40.2482 43.7293 39.9584 44.4288 39.4427 44.9445C38.927 45.4603 38.2275 45.75 37.4982 45.75C36.7688 45.75 36.0693 45.4603 35.5536 44.9445C35.0379 44.4288 34.7482 43.7293 34.7482 43C34.7482 42.2706 35.0379 41.5712 35.5536 41.0554C36.0693 40.5397 36.7688 40.25 37.4982 40.25C38.2275 40.25 38.927 40.5397 39.4427 41.0554C39.9584 41.5712 40.2482 42.2706 40.2482 43ZM23.7482 43C24.4775 43 25.177 42.7103 25.6927 42.1945C26.2084 41.6788 26.4982 40.9793 26.4982 40.25C26.4982 39.5206 26.2084 38.8212 25.6927 38.3054C25.177 37.7897 24.4775 37.5 23.7482 37.5C23.0188 37.5 22.3193 37.7897 21.8036 38.3054C21.2879 38.8212 20.9982 39.5206 20.9982 40.25C20.9982 40.9793 21.2879 41.6788 21.8036 42.1945C22.3193 42.7103 23.0188 43 23.7482 43ZM31.9982 10C27.4774 10.0004 23.0664 11.3935 19.3655 13.9898C15.6645 16.586 12.8533 20.2595 11.3142 24.5102C9.7751 28.761 9.58291 33.3827 10.7638 37.7465C11.9446 42.1104 14.4412 46.0045 17.9138 48.8991C21.3864 51.7937 25.6665 53.5482 30.1717 53.9239C34.6768 54.2996 39.1884 53.2783 43.0925 50.9988C46.9966 48.7194 50.1037 45.2926 51.991 41.1846C53.8784 37.0767 54.4544 32.487 53.6407 28.04C53.594 27.7862 53.4768 27.5506 53.3025 27.3602C53.1282 27.1699 52.9039 27.0324 52.6552 26.9635C52.4064 26.8947 52.1433 26.8972 51.896 26.9709C51.6486 27.0445 51.427 27.1863 51.2564 27.38C50.5186 28.2204 49.5421 28.816 48.4571 29.0872C47.3722 29.3585 46.2303 29.2925 45.1838 28.8982C44.1372 28.5038 43.2358 27.7998 42.5996 26.88C41.9635 25.9602 41.6229 24.8684 41.6232 23.75C41.6228 23.3987 41.5027 23.058 41.2828 22.784C41.0628 22.5101 40.7561 22.3193 40.4132 22.243C39.4462 22.0253 38.5561 21.5504 37.8369 20.8684C37.1177 20.1865 36.5961 19.3228 36.3273 18.3689C36.0585 17.4149 36.0525 16.406 36.3099 15.4489C36.5673 14.4917 37.0786 13.622 37.7897 12.9315C37.9663 12.76 38.0937 12.5442 38.1584 12.3066C38.2232 12.069 38.2229 11.8184 38.1577 11.581C38.0925 11.3435 37.9648 11.128 37.7878 10.9568C37.6108 10.7856 37.3911 10.665 37.1517 10.6078C35.4637 10.2031 33.7339 9.99909 31.9982 10ZM12.7482 32C12.748 29.2697 13.3286 26.5707 14.4515 24.082C15.5744 21.5933 17.2138 19.372 19.2609 17.5654C21.308 15.7589 23.716 14.4085 26.325 13.6038C28.934 12.7992 31.6844 12.5588 34.3934 12.8985C33.8138 13.9512 33.4712 15.1177 33.3895 16.3166C33.3078 17.5154 33.489 18.7177 33.9204 19.8392C34.3517 20.9608 35.0229 21.9746 35.887 22.8097C36.751 23.6448 37.7871 24.2811 38.9227 24.674C39.0753 26.0327 39.5633 27.3321 40.3426 28.4555C41.122 29.5789 42.1683 30.4909 43.3875 31.1097C44.6067 31.7284 45.9606 32.0345 47.3274 32.0003C48.6943 31.9661 50.0312 31.5927 51.2179 30.9137C51.3621 33.4827 50.9898 36.0546 50.123 38.4772C49.2562 40.8999 47.9125 43.1242 46.1714 45.0186C44.4303 46.9131 42.327 48.4393 39.9859 49.507C37.6449 50.5746 35.1135 51.1622 32.5415 51.2348C29.9695 51.3074 27.409 50.8637 25.0114 49.9298C22.6138 48.9959 20.4278 47.5908 18.5825 45.7977C16.7373 44.0045 15.2702 41.8595 14.2681 39.4896C13.266 37.1198 12.7492 34.573 12.7482 32Z"
-            fill="white"
-          />
-        </svg>
-      </div>
-<img src="./assets/footer.png" alt="footer"></img>
-<img src="./assets/footer-mobile.png" alt="mobile footer"></img>
+      <div class="icon-bas">
+        <div class="icon-color">
+          <svg
+            width="64"
+            height="64"
+            viewBox="0 0 64 64"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="64" height="64" rx="32" fill="#37399B" />
+            <path
+              d="M20.9982 29.25C21.7275 29.25 22.427 28.9603 22.9427 28.4445C23.4584 27.9288 23.7482 27.2293 23.7482 26.5C23.7482 25.7707 23.4584 25.0712 22.9427 24.5555C22.427 24.0397 21.7275 23.75 20.9982 23.75C20.2688 23.75 19.5693 24.0397 19.0536 24.5555C18.5379 25.0712 18.2482 25.7707 18.2482 26.5C18.2482 27.2293 18.5379 27.9288 19.0536 28.4445C19.5693 28.9603 20.2688 29.25 20.9982 29.25ZM31.9982 34.75C32.7275 34.75 33.427 34.4603 33.9427 33.9445C34.4584 33.4288 34.7482 32.7293 34.7482 32C34.7482 31.2706 34.4584 30.5712 33.9427 30.0555C33.427 29.5397 32.7275 29.25 31.9982 29.25C31.2688 29.25 30.5693 29.5397 30.0536 30.0555C29.5379 30.5712 29.2482 31.2706 29.2482 32C29.2482 32.7293 29.5379 33.4288 30.0536 33.9445C30.5693 34.4603 31.2688 34.75 31.9982 34.75ZM40.2482 43C40.2482 43.7293 39.9584 44.4288 39.4427 44.9445C38.927 45.4603 38.2275 45.75 37.4982 45.75C36.7688 45.75 36.0693 45.4603 35.5536 44.9445C35.0379 44.4288 34.7482 43.7293 34.7482 43C34.7482 42.2706 35.0379 41.5712 35.5536 41.0554C36.0693 40.5397 36.7688 40.25 37.4982 40.25C38.2275 40.25 38.927 40.5397 39.4427 41.0554C39.9584 41.5712 40.2482 42.2706 40.2482 43ZM23.7482 43C24.4775 43 25.177 42.7103 25.6927 42.1945C26.2084 41.6788 26.4982 40.9793 26.4982 40.25C26.4982 39.5206 26.2084 38.8212 25.6927 38.3054C25.177 37.7897 24.4775 37.5 23.7482 37.5C23.0188 37.5 22.3193 37.7897 21.8036 38.3054C21.2879 38.8212 20.9982 39.5206 20.9982 40.25C20.9982 40.9793 21.2879 41.6788 21.8036 42.1945C22.3193 42.7103 23.0188 43 23.7482 43ZM31.9982 10C27.4774 10.0004 23.0664 11.3935 19.3655 13.9898C15.6645 16.586 12.8533 20.2595 11.3142 24.5102C9.7751 28.761 9.58291 33.3827 10.7638 37.7465C11.9446 42.1104 14.4412 46.0045 17.9138 48.8991C21.3864 51.7937 25.6665 53.5482 30.1717 53.9239C34.6768 54.2996 39.1884 53.2783 43.0925 50.9988C46.9966 48.7194 50.1037 45.2926 51.991 41.1846C53.8784 37.0767 54.4544 32.487 53.6407 28.04C53.594 27.7862 53.4768 27.5506 53.3025 27.3602C53.1282 27.1699 52.9039 27.0324 52.6552 26.9635C52.4064 26.8947 52.1433 26.8972 51.896 26.9709C51.6486 27.0445 51.427 27.1863 51.2564 27.38C50.5186 28.2204 49.5421 28.816 48.4571 29.0872C47.3722 29.3585 46.2303 29.2925 45.1838 28.8982C44.1372 28.5038 43.2358 27.7998 42.5996 26.88C41.9635 25.9602 41.6229 24.8684 41.6232 23.75C41.6228 23.3987 41.5027 23.058 41.2828 22.784C41.0628 22.5101 40.7561 22.3193 40.4132 22.243C39.4462 22.0253 38.5561 21.5504 37.8369 20.8684C37.1177 20.1865 36.5961 19.3228 36.3273 18.3689C36.0585 17.4149 36.0525 16.406 36.3099 15.4489C36.5673 14.4917 37.0786 13.622 37.7897 12.9315C37.9663 12.76 38.0937 12.5442 38.1584 12.3066C38.2232 12.069 38.2229 11.8184 38.1577 11.581C38.0925 11.3435 37.9648 11.128 37.7878 10.9568C37.6108 10.7856 37.3911 10.665 37.1517 10.6078C35.4637 10.2031 33.7339 9.99909 31.9982 10ZM12.7482 32C12.748 29.2697 13.3286 26.5707 14.4515 24.082C15.5744 21.5933 17.2138 19.372 19.2609 17.5654C21.308 15.7589 23.716 14.4085 26.325 13.6038C28.934 12.7992 31.6844 12.5588 34.3934 12.8985C33.8138 13.9512 33.4712 15.1177 33.3895 16.3166C33.3078 17.5154 33.489 18.7177 33.9204 19.8392C34.3517 20.9608 35.0229 21.9746 35.887 22.8097C36.751 23.6448 37.7871 24.2811 38.9227 24.674C39.0753 26.0327 39.5633 27.3321 40.3426 28.4555C41.122 29.5789 42.1683 30.4909 43.3875 31.1097C44.6067 31.7284 45.9606 32.0345 47.3274 32.0003C48.6943 31.9661 50.0312 31.5927 51.2179 30.9137C51.3621 33.4827 50.9898 36.0546 50.123 38.4772C49.2562 40.8999 47.9125 43.1242 46.1714 45.0186C44.4303 46.9131 42.327 48.4393 39.9859 49.507C37.6449 50.5746 35.1135 51.1622 32.5415 51.2348C29.9695 51.3074 27.409 50.8637 25.0114 49.9298C22.6138 48.9959 20.4278 47.5908 18.5825 45.7977C16.7373 44.0045 15.2702 41.8595 14.2681 39.4896C13.266 37.1198 12.7492 34.573 12.7482 32Z"
+              fill="white"
+            />
+          </svg>
+        </div>
       </div>
 
+      <!-- Footer -->
+<footer class="footer mt-auto py-3">
+    <div class="containr text-center text-md-start">
+        <div class="row align-items-center">
+            <!-- Logo -->
+            <div class="col-md-4 mb-3 mb-md-0 text-center text-md-left">
+                <img src="./assets/Logo-KABOU.png" alt="Kabou Logo" class="footer-logo">
+            </div>
+
+            <!-- Policies -->
+            <div class="col-md-4 mb-3 mb-md-0 text-center">
+                <a href="#" class="footer-link">Politique de cookies</a> |
+                <a href="#" class="footer-link">Politique de confidentialité</a>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="col-md-4 text-center text-md-right">
+                <a href="#" class="footer-icon"><img src="./assets/instagram.svg" alt="Instagram"></a>
+                <a href="#" class="footer-icon"><img src="./assets/tiktok.svg" alt="TikTok"></a>
+                <a href="#" class="footer-icon"><img src="./assets/whatsapp.svg" alt="WhatsApp"></a>
+                <a href="#" class="footer-icon"><img src="./assets/messenger.svg" alt="Messenger"></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Rights Section Outside Footer -->
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row py-3">
+            <div class="col text-center text-muted">
+                <small>Kabou kabou © 2023 Tous les droits réservés.<span class="mobile-bottom">Politique de confidentialité</span></small>
+            </div>
+            <div class="col text-center text-md-right">
+                <small>Design by <a href="https://kamgoko.com" class="designer-link">Kamgoko</a></small>
+            </div>
+        </div>
+    </div>
+</div>
 
 
       <div class="cookie-card" style="display: none">
@@ -1070,20 +1177,40 @@ position: absolute;
 
     <script>
       function showPopup() {
-        document.getElementById("popup").style.display = "flex";
-        document.querySelector(".tab-content").style.display = "none";
-        document.querySelector(".footer").style.display = "none";
-        document.querySelector(".header").style.filter = "brightness(0.5)";
-      }
+    // Afficher le popup
+    document.getElementById("popup").style.display = "flex";
 
-      // Function to hide popup
-      function hidePopup() {
-        document.getElementById("popup").style.display = "none";
-        document.querySelector(".tab-content").style.display = "block";
-        document.querySelector(".footer").style.display = "block";
-         document.querySelector(".content").style.filter = "none";
-         document.querySelector(".header").style.filter = "brightness(1)";
-      }
+    // Cacher certains éléments lors de l'affichage du popup
+    document.querySelector(".tab-content").style.display = "none";
+    document.querySelector(".footer").style.display = "none";
+    document.querySelector(".footer-bottom").style.display = "none";
+    document.querySelector(".icon-bas").style.display = "none";
+
+    // Appliquer un filtre de luminosité à l'en-tête (header)
+    document.querySelector(".header").style.filter = "brightness(0.5)";
+
+    // Appliquer la couleur de fond avec opacité sur l'élément content
+    document.querySelector(".contain").style.backgroundColor = "rgba(29, 31, 114, 0.7)";
+}
+
+// Fonction pour masquer le popup
+function hidePopup() {
+    // Masquer le popup
+    document.getElementById("popup").style.display = "none";
+
+    // Réafficher les éléments cachés
+    document.querySelector(".tab-content").style.display = "block";
+    document.querySelector(".footer").style.display = "block";
+    document.querySelector(".footer-bottom").style.display = "block";
+    document.querySelector(".icon-bas").style.display = "block";
+
+    // Enlever le filtre appliqué à l'en-tête (header)
+    document.querySelector(".header").style.filter = "brightness(1)";
+
+    // Remettre l'arrière-plan de l'élément content à son état normal
+    document.querySelector(".contain").style.backgroundColor = ""; // Enlever la couleur appliquée
+}
+
 
       // Function to load tab content
       function loadTabContent(tabId, tabFile) {

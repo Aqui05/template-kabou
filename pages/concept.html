@@ -1,33 +1,19 @@
-<link rel="stylesheet" href="/styles/concept.css" />
-
-<div class="concept-content">
-  <div class="svg-section">
-    <!--Afficher ce svg quand on est sur desktop-->
-      <object
-        data="./assets/concept-desktop.svg"
-        type="image/svg+xml"
-      ></object>
-<!--Afficher ce svg quand on est sur mobile-->
-    <object
-        data="./assets/concept-mobile.svg"
-        type="image/svg+xml"
-      ></object>
-  </div>
-
-  <div class="text-section">
-    <h2>Concept</h2>
-    <p>
-      Kabou Kabou est un jeu de culture générale unique, spécialement axé sur le
-      Bénin. Les questions englobent diverses catégories telles que la culture,
-      le sport, la politique, et l'histoire, offrant ainsi une expérience riche
-      en connaissances sur ce magnifique pays. <br> <br> Notre objectif est de permettre
-      aux Béninois et aux étrangers de mieux connaître le Bénin tout en
-      s'amusant. Plongez-vous dans ce jeu divertissant et éducatif pour
-      découvrir les trésors culturels du Bénin, que vous soyez natif ou
-      étranger.
-    </p>
-    <button>
-      <span>Jouer</span>
-    </button>
-  </div>
-</div>
+<link rel="stylesheet" href="./styles/concept.css">
+    <div class="container">
+        <div class="row concept-content align-items-center">
+            <div class="col-md-6">
+                <object class="img-fluid concept-desktop" data="./assets/concept-desktop.svg" type="image/svg+xml"></object>
+                <object class="img-fluid concept-mobile" data="./assets/concept-mobile.svg" type="image/svg+xml"></object>
+            </div>
+            <div class="col-md-6 text-section d-flex flex-column gap-5">
+                <h2>Concept</h2>
+                <p>
+                    Kabou Kabou est un jeu de culture générale unique, spécialement axé sur le Bénin. Les questions englobent diverses catégories telles que la culture, le sport, la politique, et l'histoire, offrant ainsi une expérience riche en connaissances sur ce magnifique pays.<br><br>
+                    Notre objectif est de permettre aux Béninois et aux étrangers de mieux connaître le Bénin tout en s'amusant. Plongez-vous dans ce jeu divertissant et éducatif pour découvrir les trésors culturels du Bénin, que vous soyez natif ou étranger.
+                </p>
+                <button class="custom-btn d-flex justify-content-center align-items-center gap-2">
+                    <span>Jouer</span>
+                </button>
+            </div>
+        </div>
+    </div>
