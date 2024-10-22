@@ -65,23 +65,22 @@
     align-items: flex-start;
     top: 50%;
     left: 50%;
-    width: 100%;
+        width: 90%;
 }
 
      .popup-overlay {
-     /*position: fixed;*/
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    border-radius: 16px;
-    background-color: white;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    width: 41%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        border-radius: 16px;
+        background-color: white;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        width: 38%;
       }
 
       .popup-content {
@@ -161,7 +160,7 @@ position: absolute;
     top: -50%;
     /* right: -70%; */
     transform: none;
-    left: 21%;
+    left: 19.5%;
 }
       .fort {
         color: #37399b;
@@ -208,6 +207,16 @@ position: absolute;
         align-items: center;
         transition: filter 0.3s ease;
       }
+
+      .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(29, 31, 114, 0.7); /* Couleur de fond avec opacité */
+    z-index: 1; /* S'assure que l'overlay est au-dessus de l'image */
+}
 
     .ellipse {
       position: absolute;
@@ -1200,7 +1209,7 @@ position: absolute;
     <script>
       //Montrer le popup au chargement de la page:
 
-      function showPopup() {
+function showPopup() {
     // Afficher le popup
     document.getElementById("popup").style.display = "flex";
 
@@ -1210,11 +1219,22 @@ position: absolute;
     document.querySelector(".footer-bottom").style.display = "none";
     document.querySelector(".icon-bas").style.display = "none";
 
-    // Appliquer un filtre de luminosité à l'en-tête (header)
-    document.querySelector(".header").style.filter = "brightness(0.5)";
+    // Créer une superposition avec une couleur de fond et opacité sur le content
+    let overlay = document.createElement("div");
+    overlay.classList.add("overlay");
 
-    // Appliquer la couleur de fond avec opacité sur l'élément content
-    document.querySelector(".contain").style.backgroundColor = "rgba(29, 31, 114, 0.7)";
+    // Ajouter cette superposition à l'intérieur de l'élément contain
+    document.querySelector(".contain").appendChild(overlay);
+
+    // Appliquer un style dynamique si nécessaire
+    overlay.style.position = "absolute";
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = "100%";
+    overlay.style.height = "150%";
+    overlay.style.backgroundColor = "rgba(29, 31, 114, 0.7)";
+    overlay.style.zIndex = 1;
+
 }
 
 // Fonction pour masquer le popup
@@ -1228,11 +1248,17 @@ function hidePopup() {
     document.querySelector(".footer-bottom").style.display = "block";
     document.querySelector(".icon-bas").style.display = "block";
 
-    // Enlever le filtre appliqué à l'en-tête (header)
-    document.querySelector(".header").style.filter = "brightness(1)";
+    // Enlever l'overlay ajouté à l'élément contain
+    let overlay = document.querySelector(".contain .overlay");
+    if (overlay) {
+        overlay.remove();  // Supprime l'élément overlay s'il existe
+    }
 
-    // Remettre l'arrière-plan de l'élément content à son état normal
-    document.querySelector(".contain").style.backgroundColor = ""; // Enlever la couleur appliquée
+    // Réinitialiser tout style appliqué à l'élément contain
+    document.querySelector(".contain").style.backgroundColor = ""; // Réinitialise la couleur appliquée
+
+    // Optionnel : Réinitialiser la luminosité du header si cela a été utilisé dans le code précédent
+    document.querySelector(".header").style.filter = ""; // Réinitialise le filtre appliqué précédemment
 }
 
 
