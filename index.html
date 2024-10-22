@@ -763,9 +763,15 @@ position: absolute;
 }
 
 .footer-link {
-    color: #fff;
+
     text-decoration: none;
     margin: 0 10px;
+    color: #C1C1FF;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 150% */
 }
 
 .footer-link:hover {
@@ -822,8 +828,13 @@ position: absolute;
           display: block;
         }
 
+        .footer-link {
+            font-size: 12px;
+        }
+
         .py-3 {
           flex-direction: column;
+          gap: 11px;
         }
 
         .footer-logo {
@@ -1121,25 +1132,25 @@ position: absolute;
 
       <!-- Footer -->
 <footer class="footer mt-auto py-3">
-    <div class="containr text-center text-md-start">
+    <div class="container text-center text-md-start">
         <div class="row align-items-center">
             <!-- Logo -->
             <div class="col-md-4 mb-3 mb-md-0 text-center text-md-left">
                 <img src="./assets/Logo-KABOU.png" alt="Kabou Logo" class="footer-logo">
             </div>
 
-            <!-- Policies -->
-            <div class="col-md-4 mb-3 mb-md-0 text-center">
-                <a href="#" class="footer-link">Politique de cookies</a> |
-                <a href="#" class="footer-link">Politique de confidentialité</a>
-            </div>
-
             <!-- Social Media Icons -->
-            <div class="col-md-4 text-center text-md-right">
+            <div class="col-md-4 text-center text-md-right order-2 order-md-3">
                 <a href="#" class="footer-icon"><img src="./assets/instagram.svg" alt="Instagram"></a>
                 <a href="#" class="footer-icon"><img src="./assets/tiktok.svg" alt="TikTok"></a>
                 <a href="#" class="footer-icon"><img src="./assets/whatsapp.svg" alt="WhatsApp"></a>
                 <a href="#" class="footer-icon"><img src="./assets/messenger.svg" alt="Messenger"></a>
+            </div>
+
+            <!-- Policies -->
+            <div class="col-md-4 mb-3 mb-md-0 text-center order-3 order-md-2 mt-3 mt-md-0">
+                <a href="#" class="footer-link">Politique de cookies</a> |
+                <a href="#" class="footer-link">Politique de confidentialité</a>
             </div>
         </div>
     </div>
